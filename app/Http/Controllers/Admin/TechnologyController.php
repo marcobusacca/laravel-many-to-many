@@ -22,6 +22,17 @@ class TechnologyController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Technology  $technology
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Technology $technology)
+    {
+        return view('admin.technologies.show', compact('technology'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -38,17 +49,6 @@ class TechnologyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreTechnologyRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Technology  $technology
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Technology $technology)
     {
         //
     }
