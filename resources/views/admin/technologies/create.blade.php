@@ -7,7 +7,7 @@
             <div class="col-6 d-flex justify-content-start align-items-end mt-5">
                 <h1>Crea una Nuova Tecnologia</h1>
             </div>
-            <!-- Link To Types List -->
+            <!-- Link To Technologies List -->
             <div class="col-6 d-flex justify-content-end align-items-end mt-5">
                 <a href="{{ route('admin.technologies.index') }}" class="btn btn-primary">Lista Tecnologie</a>
             </div>
