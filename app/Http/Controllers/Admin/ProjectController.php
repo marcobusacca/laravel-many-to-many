@@ -45,11 +45,6 @@ class ProjectController extends Controller
         $types = Type::all();
 
         $technologies = Technology::all();
-
-        if ($request->has('technologies')){
-
-            $project->technologies()->attach($request->technologies);
-        }
         
         return view('admin.projects.create', compact('types', 'technologies'));
     }
@@ -75,6 +70,15 @@ class ProjectController extends Controller
 
         //
 
+        // GESTIONE RELAZIONE MANY-TO-MANY (PROJECTS, TECHNOLOGY)
+
+            if ($request->has('technologies')){
+
+                $project->technologies()->attach($request->technologies);
+            }
+
+        //
+
         $project = new Project();
 
         $project->fill($form_data);
@@ -95,11 +99,6 @@ class ProjectController extends Controller
         $types = Type::all();
 
         $technologies = Technology::all();
-
-        if ($request->has('technologies')){
-
-            $project->technologies()->sync($request->technologies);
-        }
 
         return view('admin.projects.edit', compact('project', 'types', 'technologies'));
     }
@@ -131,6 +130,15 @@ class ProjectController extends Controller
 
         //
 
+        // GESTIONE RELAZIONE MANY-TO-MANY (PROJECTS, TECHNOLOGY)
+
+            if ($request->has('technologies')){
+
+                $project->technologies()->sync($request->technologies);
+            }
+
+        //
+
         $project->update($form_data);
 
         return redirect()->route('admin.projects.show', compact('project'))->with('message', "Progetto : '$project->title' Modificato Correttamente");
@@ -153,7 +161,11 @@ class ProjectController extends Controller
 
         //
 
-        $project->technologies()->detach();
+        // GESTIONE RELAZIONE MANY-TO-MANY (PROJECTS, TECHNOLOGY)
+
+            $project->technologies()->detach();
+
+        //
 
         $project->delete();
 
