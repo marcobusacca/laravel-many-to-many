@@ -32,15 +32,15 @@
                         </div>
                         <!-- Type Projects -->
                         <div class="my-5 text-center">
-                            @if (count($type->projects) != 0)
+                            @if (count($type->projects) == 0)
+                                <span>Nessun Progetto appartenente a questa Tipologia</span>
+                            @else
                                 <!-- Projects Label -->
                                 <label class="fw-bold">Progetti di questa Tipologia:</label>
                                 <!-- List of Projects -->
                                 @foreach ($type->projects as $project)
-                                    <span class="d-inline-block">{{ $project->title }}</span>
+                                    <span>{{ $project->title }},</span>
                                 @endforeach
-                            @else
-                                <span>Nessun Progetto appartenente a questa Tipologia</span>
                             @endif
                         </div>
                     </div>

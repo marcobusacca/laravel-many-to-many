@@ -45,18 +45,24 @@
                                 <!-- Type Label -->
                                 <label class="fw-bold">Tipologia:</label>
                                 <!-- Type Content -->
-                                <span>{{ $project->type->name }}</span>
+                                <a href="" class="btn btn-sm btn-primary mx-1">{{ $project->type->name }}</a>
                             @endif
                         </div>
-                        <!-- Project Technology -->
+                        <!-- Project Technologies -->
                         <div class="my-5">
-                            @if (empty($project->technologies->name))
+                            @if (count($project->technologies) == 0)
                                 <span>Tecnologia non disponibile</span>
                             @else
-                                <!-- Technology Label -->
-                                <label class="fw-bold">Tecnologia:</label>
-                                <!-- Technology Content -->
-                                <span>{{ $project->technologies->name }}</span>
+                                <!-- Technologies Label -->
+                                @if (count($project->technologies) == 1)
+                                    <label class="fw-bold">Tecnologia:</label>
+                                @else
+                                    <label class="fw-bold">Tecnologie:</label>
+                                @endif
+                                <!-- List of Technologies -->
+                                @foreach ($project->technologies as $technology)
+                                    <a href="" class="btn btn-sm btn-primary mx-1">{{ $technology->name }}</a>
+                                @endforeach
                             @endif
                         </div>
                         <!-- Project Cover Image -->

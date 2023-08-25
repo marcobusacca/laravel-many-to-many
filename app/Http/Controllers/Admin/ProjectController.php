@@ -70,6 +70,12 @@ class ProjectController extends Controller
 
         //
 
+        $project = new Project();
+
+        $project->fill($form_data);
+
+        $project->save();
+
         // GESTIONE RELAZIONE MANY-TO-MANY (PROJECTS, TECHNOLOGY)
 
             if ($request->has('technologies')){
@@ -78,12 +84,6 @@ class ProjectController extends Controller
             }
 
         //
-
-        $project = new Project();
-
-        $project->fill($form_data);
-
-        $project->save();
 
         return redirect()->route('admin.projects.show', compact('project'))->with('message', "Progetto : '$project->title' Creato Correttamente");
     }
@@ -130,6 +130,8 @@ class ProjectController extends Controller
 
         //
 
+        $project->update($form_data);
+
         // GESTIONE RELAZIONE MANY-TO-MANY (PROJECTS, TECHNOLOGY)
 
             if ($request->has('technologies')){
@@ -138,8 +140,6 @@ class ProjectController extends Controller
             }
 
         //
-
-        $project->update($form_data);
 
         return redirect()->route('admin.projects.show', compact('project'))->with('message', "Progetto : '$project->title' Modificato Correttamente");
     }

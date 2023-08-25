@@ -64,6 +64,16 @@
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    <!-- Project Technologies Form Group -->
+                    <div class="form-group my-4">
+                        <span>Seleziona le Tecnologie</span>
+                        @foreach ($technologies as $technology)
+                            <div class="my-2">
+                                <input type="checkbox" name="technologies[]" value="{{ $technology->id }}" {{ in_array($technology->id, old('technologies', [])) ? 'checked' : ''}} class="form-check-input">
+                                <label class="form-check-label">{{ $technology->name }}</label>
+                            </div>
+                        @endforeach
+                    </div>
                     <!-- Project Cover Image Form Group -->
                     <div class="form-group my-4">
                         <!-- Cover Image Label -->
