@@ -100,6 +100,12 @@ class TechnologyController extends Controller
      */
     public function destroy(Technology $technology)
     {
+        // GESTIONE RELAZIONE MANY-TO-MANY (PROJECTS, TECHNOLOGY)
+
+            $technology->projects()->detach();
+
+        //
+
         $technology->delete();
 
         return redirect()->route('admin.technologies.index')->with('message', "Tecnologia : '$technology->name' Cancellata Correttamente");
