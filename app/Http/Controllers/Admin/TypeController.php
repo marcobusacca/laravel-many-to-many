@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Type;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
 
@@ -15,7 +14,7 @@ class TypeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         $types = Type::all();
 
@@ -28,7 +27,7 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Type $type)
+    public function show(Type $type)
     {
         return view('admin.types.show', compact('type'));
     }
