@@ -9,7 +9,7 @@
             </div>
             <!-- Link To Types List -->
             <div class="col-6 d-flex justify-content-end align-items-end mt-5">
-                <a href="{{ route('admin.types.index') }}" class="btn btn-primary">Lista Tipologie</a>
+                <a href="{{ route('admin.technologies.index') }}" class="btn btn-primary">Lista Tecnologie</a>
             </div>
             <!-- Create Form -->
             <div class="col-12 my-5">
