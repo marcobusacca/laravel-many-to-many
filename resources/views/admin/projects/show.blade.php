@@ -48,6 +48,17 @@
                                 <span>{{ $project->type->name }}</span>
                             @endif
                         </div>
+                        <!-- Project Technology -->
+                        <div class="my-5">
+                            @if (empty($project->technologies->name))
+                                <span>Tecnologia non disponibile</span>
+                            @else
+                                <!-- Technology Label -->
+                                <label class="fw-bold">Tecnologia:</label>
+                                <!-- Technology Content -->
+                                <span>{{ $project->technologies->name }}</span>
+                            @endif
+                        </div>
                         <!-- Project Cover Image -->
                         <div class="my-5">
                             @if (empty($project->cover_image))
