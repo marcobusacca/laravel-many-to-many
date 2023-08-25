@@ -19,6 +19,7 @@ class TypeSeeder extends Seeder
         $types = ['Front-End', 'Back-End', 'Design', 'DevOps'];
 
         foreach($types as $item){
+
             $type = new Type();
 
             $type->name = $item;
