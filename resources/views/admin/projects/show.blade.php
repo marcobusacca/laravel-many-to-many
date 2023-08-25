@@ -45,7 +45,7 @@
                                 <!-- Type Label -->
                                 <label class="fw-bold">Tipologia:</label>
                                 <!-- Type Content -->
-                                <a href="" class="btn btn-sm btn-primary mx-1">{{ $project->type->name }}</a>
+                                <a href="{{ route('admin.types.show', $project->type) }}" class="btn btn-sm btn-primary mx-1">{{ $project->type->name }}</a>
                             @endif
                         </div>
                         <!-- Project Technologies -->
@@ -61,7 +61,7 @@
                                 @endif
                                 <!-- List of Technologies -->
                                 @foreach ($project->technologies as $technology)
-                                    <a href="" class="btn btn-sm btn-primary mx-1">{{ $technology->name }}</a>
+                                    <a href="{{ route('admin.technologies.show', $technology) }}" class="btn btn-sm btn-primary mx-1">{{ $technology->name }}</a>
                                 @endforeach
                             @endif
                         </div>
