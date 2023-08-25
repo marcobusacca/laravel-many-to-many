@@ -50,7 +50,17 @@ class TechnologyController extends Controller
      */
     public function store(StoreTechnologyRequest $request)
     {
-        //
+        $form_data = $request->all();
+
+        $technology = new Technology();
+
+        $form_data['slug'] = $technology->generateSlug($form_data['name']);
+
+        $technology->fill($form_data);
+
+        $technology->save();
+
+        return redirect()->route('admin.technologies.show', compact('technology'))->with('message', "Tecnologia : '$technology->name' Creata Correttamente");
     }
 
     /**
