@@ -13,10 +13,10 @@ class UpdateTechnologyRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
-    /**
+       /**
      * Get the validation rules that apply to the request.
      *
      * @return array<string, mixed>
@@ -24,7 +24,15 @@ class UpdateTechnologyRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|max:50',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Il nome è obbligatorio',
+            'name.max' => 'Il nome deve avere una lunghezza massima di :max caratteri',
         ];
     }
 }
