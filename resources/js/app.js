@@ -41,7 +41,7 @@ projectDeleteButton.forEach((button) => {
         // AL PULSANTE DI "CONFERMA CANCELLAZIONE", AGGIUNGO UN EVENT_LISTENER "CLICK"
         projectConfirmDeleteButton.addEventListener('click', () => {
 
-            // RECUPERO IL "DELETE_BUTTON", ED ESEGUO LA FORM DI CANCELLAZIONE
+            // QUANDO L'UTENTE CLICCA IL PULSANTE DI "CONFERMA CANCELLAZIONE", RECUPERO IL "DELETE_BUTTON", ED ESEGUO LA FORM DI CANCELLAZIONE
             button.submit();
         })
     })
@@ -83,7 +83,49 @@ typeDeleteButton.forEach((button) => {
         // AL PULSANTE DI "CONFERMA CANCELLAZIONE", AGGIUNGO UN EVENT_LISTENER "CLICK"
         typeConfirmDeleteButton.addEventListener('click', () => {
 
-            // RECUPERO IL "DELETE_BUTTON", ED ESEGUO LA FORM DI CANCELLAZIONE
+            // QUANDO L'UTENTE CLICCA IL PULSANTE DI "CONFERMA CANCELLAZIONE", RECUPERO IL "DELETE_BUTTON", ED ESEGUO LA FORM DI CANCELLAZIONE
+            button.submit();
+        })
+    })
+})
+
+// RECUPERO TUTTI I DELETE_BUTTON DI OGNI TECNOLOGIA
+const technologyDeleteButton = document.querySelectorAll('.technology-delete-button');
+
+// CICLO L'ARRAY CONTENENTE TUTTI I DELETE_BUTTON
+technologyDeleteButton.forEach((button) => {
+
+    // PER OGNI DELETE_BUTTON, AGGIUNGO UN EVENT_LISTENER "CLICK"
+    button.addEventListener('click', (event) => {
+
+        // QUANDO L'UTENTE CLICCA SUL DELETE_BUTTON, IL FORM NON VIENE AVVIATO GRAZIE A QUESTO COMANDO
+        event.preventDefault();
+
+        // QUANDO L'UTENTE CLICCA SUL DELETE_BUTTON, MI VIENE PASSATO UN DATA ATTRIBUTE, LO RECUPERO TRAMITE QUESTA STRINGA
+        const technologyName = button.getAttribute('data-technology-name');
+
+        // RECUPERO IL TAG HTML DELLA MODALE DOVE INSERIRE IL DATA ATTRIBUTE RECUPERATO PRIMA
+        const modalTechnologyName = document.getElementById('modal-technology-name');
+
+        // INSERISCO IL DATA ATTRIBUTE DENTRO IL "MODAL_TECHNOLOGY_NAME"
+        modalTechnologyName.innerText = technologyName;
+
+        // RECUPERO L'HTML DELLA MODALE "MODAL_TECHNOLOGY_DELETE", DALLA VIEW ADMIN -> PARTIALS
+        const modal = document.getElementById('technologyConfirmDeleteModal');
+
+        // CREO LA MODALE COME OGGETTO DI BOOTSTRAP, PARTENDO DALL'HTML DELLA MODALE RECUPERATA PRIMA
+        const bootstrapModal = new bootstrap.Modal(modal);
+
+        // QUANDO L'UTENTE CLICCA NEL DELETE_BUTTON, MOSTRO LA "BOOTSTRAP_MODAL"
+        bootstrapModal.show();
+
+        // RECUPERO IL PULSANTE DI "CONFERMA CANCELLAZIONE" PRESENTE NELLA MODALE
+        const technologyConfirmDeleteButton = document.getElementById('technology-confirm-delete-button');
+
+        // AL PULSANTE DI "CONFERMA CANCELLAZIONE", AGGIUNGO UN EVENT_LISTENER "CLICK"
+        technologyConfirmDeleteButton.addEventListener('click', () => {
+
+            // QUANDO L'UTENTE CLICCA IL PULSANTE DI "CONFERMA CANCELLAZIONE", RECUPERO IL "DELETE_BUTTON", ED ESEGUO LA FORM DI CANCELLAZIONE
             button.submit();
         })
     })

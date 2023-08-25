@@ -71,5 +71,5 @@
             </div>
         </div>
     </div>
-    {{-- @include('admin.partials.modal_technology_delete'); --}}
+    @include('admin.partials.modal_technology_delete');
 @endsection
