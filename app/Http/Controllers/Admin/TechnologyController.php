@@ -83,7 +83,13 @@ class TechnologyController extends Controller
      */
     public function update(UpdateTechnologyRequest $request, Technology $technology)
     {
-        //
+        $form_data = $request->all();
+
+        $form_data['slug'] = $technology->generateSlug($form_data['name']);
+
+        $technology->update($form_data);
+
+        return redirect()->route('admin.technologies.show', compact('technology'))->with('message', "Tecnologia : '$technology->name' Modificata Correttamente");
     }
 
     /**
