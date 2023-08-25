@@ -67,7 +67,7 @@
                     </div>
                     <!-- Project Technologies Form Group -->
                     <div class="form-group my-4">
-                        <span>Seleziona le Tecnologie</span>
+                        <span>Seleziona le Tecnologie:</span>
                         @foreach ($technologies as $technology)
                             <div class="my-2">
                                 @if ($errors->any())
