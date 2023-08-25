@@ -43,7 +43,15 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::all();
-        return view('admin.projects.create', compact('types'));
+
+        $technologies = Technology::all();
+
+        if ($request->has('technologies')){
+
+            $project->technologies()->attach($request->technologies);
+        }
+        
+        return view('admin.projects.create', compact('types', 'technologies'));
     }
 
     /**
@@ -86,7 +94,14 @@ class ProjectController extends Controller
     {
         $types = Type::all();
 
-        return view('admin.projects.edit', compact('project', 'types'));
+        $technologies = Technology::all();
+
+        if ($request->has('technologies')){
+
+            $project->technologies()->sync($request->technologies);
+        }
+
+        return view('admin.projects.edit', compact('project', 'types', 'technologies'));
     }
 
     /**
@@ -137,6 +152,8 @@ class ProjectController extends Controller
             }
 
         //
+
+        $project->technologies()->detach();
 
         $project->delete();
 
