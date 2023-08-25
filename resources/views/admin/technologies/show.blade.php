@@ -3,13 +3,13 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <!-- Type Name -->
+            <!-- Technology Name -->
             <div class="col-6 d-flex justify-content-start align-items-end my-5">
-                <h1>{{ $type->name }}</h1>
+                <h1>{{ $technology->name }}</h1>
             </div>
-            <!-- Link To Types List -->
+            <!-- Link To Technology List -->
             <div class="col-6 d-flex justify-content-end align-items-end my-5">
-                <a href="{{ Route('admin.types.index') }}" class="btn btn-primary">Lista Tipologie</a>
+                <a href="{{ Route('admin.technologies.index') }}" class="btn btn-primary">Lista Tecnologie</a>
             </div>
             <!-- Create, Edit Confirm Message -->
             @if (session('message'))
@@ -23,23 +23,23 @@
                 <!-- Show Card -->
                 <div class="card w-100">
                     <div class="card-body">
-                        <!-- Type Slug -->
+                        <!-- Technology Slug -->
                         <div class="my-5 text-center">
                             <!-- Slug Label -->
                             <label class="fw-bold">Slug:</label>
                             <!-- Slug Content -->
-                            <span class="d-inline-block">{{ $type->slug }}</span>
+                            <span class="d-inline-block">{{ $technology->slug }}</span>
                         </div>
-                        <!-- Type Projects -->
+                        <!-- Technology Projects -->
                         <div class="my-5 text-center">
                             <div class="row justify-content-center">
-                                @if (count($type->projects) == 0)
-                                    <span>Nessun Progetto appartenente alla Tipologia "{{ $type->name }}"</span>
+                                @if (count($technology->projects) == 0)
+                                    <span>Nessun Progetto sviluppato con {{ $technology->name }}</span>
                                 @else
                                     <!-- Projects Label -->
-                                    <label class="fw-bold">Progetti {{ $type->name }}:</label>
+                                    <label class="fw-bold">Progetti sviluppati con {{ $technology->name }}:</label>
                                     <!-- List of Projects -->
-                                    @foreach ($type->projects as $project)
+                                    @foreach ($technology->projects as $project)
                                         <div class="col-4 p-4">
                                             <div class="card h-100">
                                                 @if (empty($project->cover_image))

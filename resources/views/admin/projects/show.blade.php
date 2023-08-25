@@ -19,7 +19,7 @@
                     </div>
                 </div>
             @endif
-            <div class="col-12">
+            <div class="col-12 mb-5">
                 <!-- Show Card -->
                 <div class="card w-100">
                     <div class="card-body">
@@ -70,8 +70,10 @@
                             @if (empty($project->cover_image))
                                 <span>Immagine non disponibile</span>
                             @else
-                                <!-- Cover Image -->
-                                <img src="{{ asset('storage/'.$project->cover_image) }}" alt="{{ $project->title }}-cover-image">
+                                <div class="text-center">
+                                    <!-- Cover Image -->
+                                    <img src="{{ asset('storage/'.$project->cover_image) }}" alt="{{ $project->title }}-cover-image">
+                                </div>
                             @endif
                         </div>
                     </div>
