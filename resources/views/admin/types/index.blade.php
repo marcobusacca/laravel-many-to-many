@@ -26,7 +26,7 @@
                         <tr class="text-center">
                             <th>ID</th>
                             <th>Name</th>
-                            <th>slug</th>
+                            <th>Slug</th>
                             <th>Tools</th>
                         </tr>
                     </thead>
