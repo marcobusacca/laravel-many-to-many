@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\ProjectController as ProjectController;
 
 use App\Http\Controllers\Admin\TypeController as TypeController;
 
+use App\Http\Controllers\Admin\TechnologyController as TechnologyController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +39,9 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
 
     // TYPES RESOURCE (INDEX, SHOW, CREATE, STORE, EDIT, UPDATE, DESTROY)
     Route::resource('types', TypeController::class);
+
+    // TECHNOLOGIES RESOURCE (INDEX, SHOW, CREATE, STORE, EDIT, UPDATE, DESTROY)
+    Route::resource('technologies', TechnologyController::class);
 
 });
 
